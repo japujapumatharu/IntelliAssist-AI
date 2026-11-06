@@ -1,0 +1,11 @@
+Retrieval-Augmented Generation (RAG) is an architecture that combines a retriever with a text generator. Instead of relying only on what a language model memorised during training, a RAG system first searches a knowledge base for passages relevant to the user's question and then feeds those passages to the model as context.
+
+The RAG pipeline has four main stages. First, documents are loaded and split into overlapping chunks. Second, each chunk is converted into a dense vector using an embedding model such as a BERT-based sentence transformer. Third, the vectors are stored in a vector database like FAISS or ChromaDB. Fourth, at query time the question is embedded, the nearest chunks are retrieved, and the language model writes an answer grounded in those chunks.
+
+Embeddings capture semantic meaning, so a query like "how do I reduce overfitting" can match a passage about regularisation even if the word overfitting never appears. TF-IDF, by contrast, scores words by how frequent they are in a document relative to the whole collection, which makes it excellent for exact keyword matching. Hybrid search blends both signals.
+
+FAISS is a library from Meta for fast similarity search over dense vectors. ChromaDB is an open-source vector database that adds persistence and metadata filtering. Both support cosine similarity and approximate nearest neighbour search.
+
+Chunk size matters. Small chunks give precise retrieval but may lose context, while large chunks keep context but add noise. A common starting point is 500 to 1000 characters with 10 to 20 percent overlap.
+
+Hallucination happens when a model produces fluent but unsupported statements. RAG reduces hallucination by grounding answers in retrieved text and by showing source citations so users can verify each claim. Evaluation of a RAG system looks at retrieval quality, such as hit rate at k, and answer quality, such as faithfulness and relevance.

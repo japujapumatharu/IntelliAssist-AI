@@ -1,0 +1,7 @@
+[
+  {"question": "What are the four stages of the RAG pipeline?", "keywords": ["split", "embedding", "vector database", "retrieved"]},
+  {"question": "What is FAISS?", "keywords": ["Meta", "similarity search"]},
+  {"question": "How does RAG reduce hallucination?", "keywords": ["grounding", "citations"]},
+  {"question": "What chunk size is a good starting point?", "keywords": ["500 to 1000"]},
+  {"question": "Why use TF-IDF?", "keywords": ["keyword matching"]}
+]
